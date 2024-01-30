@@ -1,0 +1,58 @@
+/* .fr-img-wrap{
+    text-align: -webkit-center !important;
+
+}
+.fr-dib{
+    text-align: -webkit-center !important;
+
+} */
+/* figure{
+    text-align: -webkit-center !important;
+} */
+figure{
+    margin: 0 auto !important;;
+}
+table {
+    margin : 0 auto !important;
+}
+.se-component.se-image-container.__se__float-center{
+    text-align: -webkit-center !important;
+    justify-content: flex-end;
+    display: flex;
+    /* text-align: center !important; */
+}
+.se-component.se-image-container.__se__float-right{
+    text-align: -webkit-right !important;
+    justify-content: flex-end;
+    display: grid;
+
+
+    /* text-align: center !important; */
+}
+.se-component.se-image-container.__se__float-left{
+    text-align: -webkit-left !important;
+
+
+
+    /* text-align: center !important; */
+}
+/* p{   
+
+    text-align: -webkit-center; 
+
+    align-items: center !important;
+    justify-items: center !important;
+    justify-content: center !important;
+}
+
+.ql-editor .ql-align-center .ql-indent-7 {
+    text-align: center !important;
+    align-items: center !important;
+    justify-items: center !important;
+    justify-content: center !important;
+    -webkit-text-align: center; 
+  }
+*/
+/* img{
+    text-align: -webkit-center;
+}  */

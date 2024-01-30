@@ -1,0 +1,6 @@
+{
+    "files.autoSave": "afterDelay",
+    "editor.fontLigatures": false,
+    // "editor.fontWeight": "bold",
+    "editor.fontFamily": "JetBrains Mono,'Courier New', monospace"
+}
