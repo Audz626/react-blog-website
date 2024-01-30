@@ -178,7 +178,7 @@ export default function MiniDrawer() {
     <div>
       <Box>
         <CssBaseline />
-        <AppBar position="fixed" open={open}>
+        <AppBar position="fixed" open={open} >
           <Toolbar className="bg-[#80cc96]">
             <IconButton
               color="inherit"

@@ -105,8 +105,8 @@ const Blogmanage = () => {
 
   return (
     <div>
-      <h1 className="text-center text-[30px] font-bold">Blog Manage</h1>
-      <TableContainer component={Paper}>
+      <h1 className="text-center text-[30px] font-bold">Manage Blog</h1>
+      <TableContainer className="!bg-[#f1f0f0] !rounded-lg !shadow-xl" component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -174,7 +174,7 @@ const Blogmanage = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <div className="justify-center flex">
+      <div className="justify-center flex mt-5">
         {data.length && (
           <Stack className="mx-10 mb-10" spacing={2}>
             <Pagination

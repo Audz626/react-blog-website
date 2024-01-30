@@ -33,10 +33,10 @@ const AdminRoute = ({ children }: chindrenType) => {
 
   return ok ? (
     <div className="app m-20">
-      <main className="content flex justify-center m-0">
+      <main className="content flex justify-center m-0 ">
         <MiniDrawer />
         <div className="">
-          <Box m="20px">{children}</Box>
+          <Box  m="20px">{children}</Box>
         </div>
       </main>
     </div>

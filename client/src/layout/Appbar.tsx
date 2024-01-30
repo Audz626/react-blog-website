@@ -165,8 +165,8 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar position="sticky" style={{ backgroundColor: "#80cc96 " }}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+      <Container maxWidth="xl" >
+        <Toolbar disableGutters >
           {/* LOGO */}
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <Typography
@@ -190,7 +190,7 @@ function ResponsiveAppBar() {
           {/* /LOGO */}
 
           {/* Minimize Menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box className="!bg-[#f0f0f0]" sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -203,6 +203,7 @@ function ResponsiveAppBar() {
             </IconButton>
 
             <Menu
+            className="!bg-[#f0f0f0]"
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{

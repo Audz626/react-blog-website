@@ -61,14 +61,14 @@ export default function UserManage() {
   return (
     <div>
       <h1 className="text-center text-[30px] font-bold my-[20px]">Manage Users</h1>
-      <TableContainer className="!rounded-xl" component={Paper}>
+      <TableContainer className="!rounded-xl !bg-[#f0f0f0] !shadow-lg" component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell className="">#</TableCell>
-              <TableCell>name&nbsp;</TableCell>
-              <TableCell>role&nbsp;</TableCell>
-              <TableCell>updatedAt&nbsp;</TableCell>
+              <TableCell align="center">#</TableCell>
+              <TableCell align="center">name&nbsp;</TableCell>
+              <TableCell align="center">role&nbsp;</TableCell>
+              <TableCell align="center">updatedAt&nbsp;</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -77,11 +77,11 @@ export default function UserManage() {
                 key={index}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell component="th" scope="row">
+                <TableCell align="center" component="th" scope="row">
                   {index + 1}
                 </TableCell>
-                <TableCell>{row.name}</TableCell>
-                <TableCell>
+                <TableCell align="center">{row.name}</TableCell>
+                <TableCell align="center">
                   {row.name == "admin" ? (
                     <Select
                      disabled
@@ -113,7 +113,7 @@ export default function UserManage() {
                     </Select>
                   )}
                 </TableCell>
-                <TableCell>
+                <TableCell align="center">
                   {moment(row.updatedAt).format("DD/MM/YYYY , HH:mm:ss")}
                 </TableCell>
               </TableRow>
