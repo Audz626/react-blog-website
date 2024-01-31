@@ -1,0 +1,12 @@
+.search {
+
+    box-sizing: border-box;
+    /* border: 3px solid red; */
+    -webkit-transition: 1s;
+    transition: 1s;
+    outline: none;
+  }
+  
+  .search:focus {
+    border: 3px solid #39947D;
+  }

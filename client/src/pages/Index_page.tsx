@@ -1,23 +1,28 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ResponsiveAppBar from "../layout/Appbar";
-import { getList } from "../service/blog";
+import { getList,searchData } from "../service/blog";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import SearchIcon from "@mui/icons-material/Search";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
 import NoimageLogo from "../assets/noimage.jpg";
+// import TextField from "@mui/material/TextField";
+import "../assets/style/input.css"
 
 const API_IMG = import.meta.env.VITE_IMG ? import.meta.env.VITE_IMG : "";
 
 const index = () => {
   const [data, setData] = useState<any[]>([]);
+  const [search, setSearch] = useState("");
 
   const [page, setPage] = useState(1);
   const pageSize = 12;
@@ -31,9 +36,20 @@ const index = () => {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [search]);
 
-  const handlePageChange = (event: any, newPage: any) => {
+  const handleSearch = async () => {
+    console.log("data search @index_page :", search);
+    searchData(search)
+    .then((res) => {
+      console.log("data resp @index_page",res.data);
+      setData(res.data);
+    }).catch((err) => {
+      console.error(err);  
+    });
+  };
+
+  const handlePageChange = (_event: any, newPage: any) => {
     setPage(newPage);
   };
 
@@ -42,13 +58,31 @@ const index = () => {
   const paginatedData = data.slice(startIndex, endIndex);
   console.log("data @index page:", data);
 
+
   return (
     <>
       <ResponsiveAppBar />
+      <div className="mt-5 ml-8">
+        {/* <TextField className="bg-white hover:!border-[#39947D]" id="outlined-basic" value={search} onChange={(e) => setSearch(e.target.value)} label="Search" variant="outlined" /> */}
+        <input
+          className="search rounded-full w-[300px] h-[40px] hover:border-[#39947D] shadow-lg" 
+          type="text"
+          placeholder="   Search..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button onClick={handleSearch} className="ml-2 text-white rounded-full w-[40px] h-[40px] bg-[#39947D] border-2 border-[#39947D]">
+          <SearchIcon />
+        </button>
+      </div>
       <div className="m-[2rem] grid grid-cols-4 gap-4">
         {paginatedData?.map((data, index) => (
-          <Link to={`/read/${data.slug}` } >
-            <Card className="!rounded-xl !shadow-lg hover:!text-[#39947D]" key={index} sx={{ maxWidth: 345 }}>
+          <Link to={`/read/${data.slug}`}>
+            <Card
+              className="!rounded-xl !shadow-lg hover:!text-[#39947D]"
+              key={index}
+              sx={{ maxWidth: 345 }}
+            >
               <div className="!overflow-hidden !rounded-t-[1rem] !aspect-w-1 !aspect-h-1">
                 {/* {" "} */}
                 <CardMedia
@@ -82,7 +116,7 @@ const index = () => {
                   </Typography>
                 </div>
               </CardContent>
-              <CardActions className="float-end mr-1 mb-1 rounded-full hover:!bg-[#e4f5ea]" >
+              <CardActions className="float-end mr-1 mb-1 rounded-full hover:!bg-[#e4f5ea]">
                 <Link to={`/read/${data.slug}`}>Read more</Link>
               </CardActions>
             </Card>

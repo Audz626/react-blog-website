@@ -29,8 +29,8 @@ export async function create(req: Request, res: Response, next: NextFunction) {
     if (req.file) {
       data.file = req.file.filename; // set data into req.body : keyname='file': req.file.filename (if key=data.test keyname="test")
       //   console.log('req.file blogcntrollers :',data);
-    }else{
-      data.file = 'noimage.jpg'
+    } else {
+      data.file = "noimage.jpg";
     }
 
     if (findId?._id) {
@@ -59,9 +59,10 @@ export async function read(req: Request, res: Response, next: NextFunction) {
 
 export async function list(req: Request, res: Response, next: NextFunction) {
   try {
-    const getlist = await blogsModel.find({})
-    .populate("author", ["name"])
-    .exec();
+    const getlist = await blogsModel
+      .find({})
+      .populate("author", ["name"])
+      .exec();
     // console.log('getlist @blogController:', getlist);
     res.send(getlist);
   } catch (err) {
@@ -81,7 +82,7 @@ export async function getblogbyslug(
       .findOne({ slug })
       .populate("author", ["name"]) // ดึงข้อมูล usermodelมา เอาแค่ชื่อ
       .exec();
-    console.log('getblogbyslug @blogcon>>>',getblogbyslug);
+    console.log("getblogbyslug @blogcon>>>", getblogbyslug);
     res.json(getblogbyslug);
   } catch (err) {
     console.log(err);
@@ -150,7 +151,7 @@ export async function update(req: Request, res: Response, next: NextFunction) {
     const update_product = await blogsModel
       .findOneAndUpdate({ _id: id }, newData, { new: true })
       .exec();
-      console.log('update_product @blogcon:',update_product)
+    console.log("update_product @blogcon:", update_product);
     res.status(200).send("Updated!!");
   } catch (err: any) {
     res.status(500).send(err.message);
@@ -165,7 +166,7 @@ export async function remove(req: Request, res: Response, next: NextFunction) {
       .exec();
 
     console.log("remove_product", remove_product);
-    if (remove_product?.file && remove_product?.file != 'noimage.jpg' ) {
+    if (remove_product?.file && remove_product?.file != "noimage.jpg") {
       await fs.unlink("./uploads/" + remove_product?.file, (err) => {
         if (err) throw err;
         else console.log("Removed");
@@ -174,6 +175,22 @@ export async function remove(req: Request, res: Response, next: NextFunction) {
     res.status(200).send(remove_product);
   } catch (err: any) {
     res.status(500).send(err.message);
+  }
+}
+
+export async function search(req: Request, res: Response, next: NextFunction) {
+  try {
+    const Shearchdata = req.query.data;
+    console.log("search @blogcon:", Shearchdata);
+    const querydata = await blogsModel
+      .find({ title: { $regex: new RegExp(`^${Shearchdata}`, "i") } })
+      .exec();
+
+    res.send(querydata);
+
+    // db.collection.find({ title: { $regex: /^how/i } })
+  } catch (err) {
+    console.log(err);
   }
 }
 

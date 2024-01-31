@@ -22,3 +22,6 @@ export const update = async (id:string, data:object) =>{
 export const remove = async (id:string) => {
     return await axios.delete(`${API_URL}/deleteblog/${id}`);
 }
+export const searchData = async (data:string) => {
+    return await axios.get(`${API_URL}/search?data=${data}`);
+};
