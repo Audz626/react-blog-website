@@ -1,15 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useEffect } from "react";
-import { getList } from "../../service/blog";
+import { useState, useEffect } from "react";
+import { getList, searchData } from "../../service/blog";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import SearchIcon from "@mui/icons-material/Search";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import NoimageLogo from "../../assets/noimage.jpg";
 import Stack from "@mui/material/Stack";
 import Pagination from "@mui/material/Pagination";
+import "../../assets/style/input.css"
+import "../../assets/style/manageindex.css"
 
 const API_IMG = import.meta.env.VITE_IMG ? import.meta.env.VITE_IMG : "";
 
@@ -17,6 +20,7 @@ const API_IMG = import.meta.env.VITE_IMG ? import.meta.env.VITE_IMG : "";
 export default function Homepage() {
   // console.log("Homepage api img",API_IMG);
   const [data, setData] = useState<any[]>([]);
+  const [search, setSearch] = useState("");
 
   const [page, setPage] = useState(1);
   const pageSize = 12;
@@ -30,9 +34,20 @@ export default function Homepage() {
       .catch((err) => {
         console.log("homepage err :", err);
       });
-  }, []);
+  }, [search]);
 
-  const handlePageChange = (event: any, newPage: any) => {
+  const handleSearch = async () => {
+    console.log("data search @hompage user :", search);
+    searchData(search)
+    .then((res) => {
+      console.log("data resp @hompage user",res.data);
+      setData(res.data);
+    }).catch((err) => {
+      console.error(err);  
+    });
+  };
+
+  const handlePageChange = (_event: any, newPage: any) => {
     setPage(newPage);
   };
 
@@ -44,7 +59,23 @@ export default function Homepage() {
 
   return (
     <>
-      <div className="m-[2rem] grid grid-cols-4 gap-4">
+      <div className="manage mx-auto my-5 px-[10rem]">
+        {/* <TextField className="bg-white hover:!border-[#39947D]" id="outlined-basic" value={search} onChange={(e) => setSearch(e.target.value)} label="Search" variant="outlined" /> */}
+        <input
+          className="search rounded-full w-[300px] h-[40px] hover:border-[#39947D] shadow-lg"
+          type="text"
+          placeholder="   Search..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button
+          onClick={handleSearch}
+          className="ml-2 text-white rounded-full w-[40px] h-[40px] bg-[#39947D] border-2 border-[#39947D]"
+        >
+          <SearchIcon />
+        </button>
+      </div>
+      <div className="setcard manage mx-auto my-5 px-[10rem] grid grid-cols-4 gap-4">
         {paginationData?.map((data, index) => (
           <Link to={`/read/${data.slug}`}>
             <Card
@@ -68,7 +99,7 @@ export default function Homepage() {
 
               <CardContent>
                 <Typography
-                  className="!font-bold !text-[19.125px] hover:!text-[#39947D]"
+                  className="!font-bold !text-[19.125px] hover:!text-[#39947D] text-ellipsis overflow-hidden whitespace-nowrap"
                   gutterBottom
                   variant="h5"
                   component="div"

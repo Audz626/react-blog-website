@@ -1,0 +1,77 @@
+body{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* @media only screen and (max-width: 1030px) {
+    .slug{
+        margin-left: 120px !important;
+        margin-right: 120px !important;
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+        padding-bottom: 100px !important;
+        padding-top: 80px !important;
+        
+    }
+} */
+@media only screen and (max-width: 1180px) {
+    .slug{
+        margin-left: 120px !important;
+        margin-right: 120px !important;
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+        padding-top: 80px !important;
+        padding-bottom: 100px !important;
+        
+    }
+
+}
+
+
+@media only screen and (max-width: 1140px) {
+    .slug{
+        margin-left: 120px !important;
+        margin-right: 120px !important;
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+        padding-top: 80px !important;
+        padding-bottom: 100px !important;
+        
+    }
+
+}
+@media only screen and (max-width: 1025px) {
+    .slug{
+        margin-left: 100px !important;
+        margin-right: 100px !important;
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+        padding-top: 80px !important;
+        padding-bottom: 100px !important;
+        
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    .slug{
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-top: 80px !important;
+        padding-bottom: 100px !important;
+        
+    }
+
+}
+@media only screen and (max-width: 401px) {
+    .title {
+        font-size: 18px !important;
+    }
+
+    .content{
+        font-size: 12px !important;
+        
+    }
+}

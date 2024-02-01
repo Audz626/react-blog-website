@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 import NoimageLogo from "../assets/noimage.jpg";
 // import TextField from "@mui/material/TextField";
 import "../assets/style/input.css"
+import "../assets/style/manageindex.css"
 
 const API_IMG = import.meta.env.VITE_IMG ? import.meta.env.VITE_IMG : "";
 
@@ -36,7 +37,7 @@ const index = () => {
       .catch((err) => {
         console.error(err);
       });
-  }, [search]);
+  }, []);
 
   const handleSearch = async () => {
     console.log("data search @index_page :", search);
@@ -60,9 +61,9 @@ const index = () => {
 
 
   return (
-    <>
+    <div>
       <ResponsiveAppBar />
-      <div className="mt-5 ml-8">
+      <div className="manage mx-auto my-5 px-[10rem]">
         {/* <TextField className="bg-white hover:!border-[#39947D]" id="outlined-basic" value={search} onChange={(e) => setSearch(e.target.value)} label="Search" variant="outlined" /> */}
         <input
           className="search rounded-full w-[300px] h-[40px] hover:border-[#39947D] shadow-lg" 
@@ -75,11 +76,11 @@ const index = () => {
           <SearchIcon />
         </button>
       </div>
-      <div className="m-[2rem] grid grid-cols-4 gap-4">
+      <div className="setcard manage mx-auto my-5 px-[10rem] grid grid-cols-4 gap-4">
         {paginatedData?.map((data, index) => (
           <Link to={`/read/${data.slug}`}>
             <Card
-              className="!rounded-xl !shadow-lg hover:!text-[#39947D]"
+              className=" !rounded-xl !shadow-lg hover:!text-[#39947D]"
               key={index}
               sx={{ maxWidth: 345 }}
             >
@@ -99,7 +100,7 @@ const index = () => {
               </div>
               <CardContent>
                 <Typography
-                  className="!font-bold !text-[19.125px] hover:!text-[#39947D]"
+                  className=" !font-bold !text-[19.125px] hover:!text-[#39947D] text-ellipsis overflow-hidden whitespace-nowrap"
                   gutterBottom
                   variant="h5"
                   component="div"
@@ -138,7 +139,7 @@ const index = () => {
           </Stack>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

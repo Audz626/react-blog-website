@@ -164,8 +164,8 @@ function ResponsiveAppBar() {
   // }
 
   return (
-    <AppBar position="sticky" style={{ backgroundColor: "#80cc96 " }}>
-      <Container maxWidth="xl" >
+<AppBar position="sticky" style={{ backgroundColor: "#80cc96 " }}>
+      <Container maxWidth="lg">
         <Toolbar disableGutters >
           {/* LOGO */}
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
@@ -190,7 +190,7 @@ function ResponsiveAppBar() {
           {/* /LOGO */}
 
           {/* Minimize Menu */}
-          <Box className="!bg-[#f0f0f0]" sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box className="" sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -203,7 +203,7 @@ function ResponsiveAppBar() {
             </IconButton>
 
             <Menu
-            className="!bg-[#f0f0f0]"
+            className=""
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -261,7 +261,7 @@ function ResponsiveAppBar() {
             <IconButton>
               <Avatar
                 alt="Remy Sharp"
-                src={ProfileLogo}
+                src={BioLogo}
               />
             </IconButton>
           </Typography>
@@ -387,6 +387,7 @@ function ResponsiveAppBar() {
         </Toolbar>
       </Container>
     </AppBar>
+
   );
 }
 export default ResponsiveAppBar;

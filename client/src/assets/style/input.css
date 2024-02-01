@@ -10,3 +10,52 @@
   .search:focus {
     border: 3px solid #39947D;
   }
+
+  @media only screen and (max-width: 430px){
+    .search{
+      width: 180px !important;
+      /* background: lightskyblue !important; */
+    }
+  }
+
+  @media only screen and (max-width: 322px){
+    .search{
+      width: 140px !important;
+      /* background: lightskyblue !important; */
+    }
+  }
+
+  /* ************************************************************************ */
+
+  @media only screen and (max-width: 800px){
+    .setcard{
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 0.5rem;
+      font-size: 12px;
+      /* background: lightskyblue !important; */
+    }
+}
+
+@media only screen and (max-width: 605px){
+  .setcard{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.5rem;
+    font-size: auto;
+   
+    /* background: lightskyblue !important; */
+  }
+}
+@media only screen and (max-width: 419px){
+  .setcard{
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    gap: 0.5rem;
+    font-size: auto;
+    /* background: lightskyblue !important; */
+  }
+}
+
+/* .card{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow : ellipsis;
+} */

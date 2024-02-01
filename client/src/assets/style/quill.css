@@ -1,14 +1,4 @@
-/* .fr-img-wrap{
-    text-align: -webkit-center !important;
 
-}
-.fr-dib{
-    text-align: -webkit-center !important;
-
-} */
-/* figure{
-    text-align: -webkit-center !important;
-} */
 figure{
     margin: 0 auto !important;;
 }
@@ -36,23 +26,4 @@ table {
 
     /* text-align: center !important; */
 }
-/* p{   
 
-    text-align: -webkit-center; 
-
-    align-items: center !important;
-    justify-items: center !important;
-    justify-content: center !important;
-}
-
-.ql-editor .ql-align-center .ql-indent-7 {
-    text-align: center !important;
-    align-items: center !important;
-    justify-items: center !important;
-    justify-content: center !important;
-    -webkit-text-align: center; 
-  }
-*/
-/* img{
-    text-align: -webkit-center;
-}  */

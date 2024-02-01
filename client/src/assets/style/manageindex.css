@@ -1,0 +1,12 @@
+@media only screen and (max-width: 1214px) {
+    .manage {
+        padding-left: 80px !important;
+        padding-right: 80px !important;
+    }
+}
+@media only screen and (max-width: 513px) {
+    .manage {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+}
