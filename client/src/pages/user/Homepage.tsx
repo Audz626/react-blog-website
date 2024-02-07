@@ -116,7 +116,7 @@ export default function Homepage() {
                   </Typography>
                 </div>
               </CardContent>
-              <CardActions className="!font-semibold float-end mr-1">
+              <CardActions className="float-end mr-1 mb-1 rounded-full hover:!bg-[#e4f5ea]">
                 {/* <Button className="hover:!bg-[red] !rounded-full" size="small">
                 Share
               </Button> */}
