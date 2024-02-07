@@ -3,6 +3,7 @@
 import { ReactNode, useEffect } from "react";
 import { useSelector } from "react-redux";
 import ResponsiveAppBar from "../layout/Appbar";
+import Footer from "../layout/Footer";
 // import { useNavigate } from "react-router-dom";
 
 interface childrenProp {
@@ -27,6 +28,7 @@ const UserRoute = ({ children }: childrenProp) => {
     <div>
       <ResponsiveAppBar />
       {children}
+      <Footer/>
     </div>
   ) : (
     <div>

@@ -59,7 +59,7 @@ export default function Homepage() {
 
   return (
     <>
-      <div className="manage mx-auto my-5 px-[10rem]">
+      <div className="manage mx-auto my-5 px-[10rem] mt-10">
         {/* <TextField className="bg-white hover:!border-[#39947D]" id="outlined-basic" value={search} onChange={(e) => setSearch(e.target.value)} label="Search" variant="outlined" /> */}
         <input
           className="search rounded-full w-[300px] h-[40px] hover:border-[#39947D] shadow-lg"
