@@ -22,154 +22,154 @@ const footer = () => {
             <div className="-set-2 max-[1005px]:w-[100%] max-[1005px]:!pl-0 flex justify-between pl-[3rem] w-[66.666667%] text-left">
               <div className="pl-[2rem] max-[1005px]:!pl-0">
                 <a className=" block font-bold text-[17px] pb-[1.5rem]" href="">
-                  Example 1
+                  Menu 1
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 2
+                  SubMenu 1
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px]  text-[#818181]"
                   href=""
                 >
-                  Packages
+                  SubMenu 2
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 4
+                  SubMenu 3
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 5
+                  SubMenu 4
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 6
+                  SubMenu 5
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 7
+                  SubMenu 6
                 </a>
               </div>
               <div className="">
                 <a className=" block font-bold pb-[1.5rem]" href="">
-                  Example 1
+                Menu 2
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 2
+                  SubMenu 1
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 3
+                  SubMenu 2
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 4
+                  SubMenu 3
                 </a>
               </div>
               <div className="">
                 <a className=" block font-bold pb-[1.5rem]" href="">
-                  Example 1
+                Menu 3
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 2
+                  SubMenu 1
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 3
+                  SubMenu 2
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 4
+                  SubMenu 3
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 5
+                  SubMenu 4
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 6
+                  SubMenu 5
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 7
+                  SubMenu 6
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 8
+                  SubMenu 7
                 </a>
                 <a
                   className=" block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 9
+                  SubMenu 8
                 </a>
               </div>
               <div className="">
                 <a className=" block font-bold pb-[1.5rem]" href="">
-                  Example 1
+                Menu 4
                 </a>
                 <a
                   className=" font-[400] block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 2
+                  SubMenu 1
                 </a>
                 <a
                   className=" font-[400] block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 3
+                  SubMenu 2
                 </a>
                 <a
                   className=" font-[400] block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 4
+                  SubMenu 3
                 </a>
                 <a
                   className=" font-[400] block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 5
+                  SubMenu 4
                 </a>
                 <a
                   className=" font-[400] block py-[8.5px] text-[17px] text-[#818181]"
                   href=""
                 >
-                  Example 6
+                  SubMenu 5
                 </a>
               </div>
             </div>
