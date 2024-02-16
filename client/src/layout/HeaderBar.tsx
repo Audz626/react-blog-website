@@ -110,22 +110,35 @@ export default function MiniDrawer() {
 
   const handleLogout = () => {
     console.log("logout");
-    let timerInterval: any;
     Swal.fire({
-      // title: "Auto close alert!",
-      // html: "I will close in <b></b> milliseconds.",
-      timer: 1500,
-      timerProgressBar: true,
-      didOpen: () => {
-        Swal.showLoading();
-      },
-      willClose: () => {
-        clearInterval(timerInterval);
-
-        dispatch(logout());
-        navigate("/");
-      },
+      title: "Are you sure?",
+      text: "Do you want to log out?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let timerInterval: any;
+        Swal.fire({
+          // title: "Auto close alert!",
+          // html: "I will close in <b></b> milliseconds.",
+          timer: 1000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+          willClose: () => {
+            clearInterval(timerInterval);
+    
+            dispatch(logout());
+            navigate("/");
+          },
+        }); 
+      }
     });
+
   };
 
   const theme = useTheme();

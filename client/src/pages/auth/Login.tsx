@@ -73,7 +73,7 @@ export default function Loin() {
         Swal.fire({
           // title: "Auto close alert!",
           // html: "I will close in <b></b> milliseconds.",
-          timer: 1500,
+          timer: 1200,
           timerProgressBar: true,
           didOpen: () => {
             Swal.showLoading();
