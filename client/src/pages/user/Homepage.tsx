@@ -11,8 +11,10 @@ import { Link } from "react-router-dom";
 import NoimageLogo from "../../assets/noimage.jpg";
 import Stack from "@mui/material/Stack";
 import Pagination from "@mui/material/Pagination";
-import "../../assets/style/input.css"
-import "../../assets/style/manageindex.css"
+import "../../assets/style/input.css";
+import "../../assets/style/manageindex.css";
+
+import { SyncLoader } from "react-spinners"; //<SyncLoader color="#36d7b7" />
 
 const API_IMG = import.meta.env.VITE_IMG ? import.meta.env.VITE_IMG : "";
 
@@ -39,12 +41,13 @@ export default function Homepage() {
   const handleSearch = async () => {
     console.log("data search @hompage user :", search);
     searchData(search)
-    .then((res) => {
-      console.log("data resp @hompage user",res.data);
-      setData(res.data);
-    }).catch((err) => {
-      console.error(err);  
-    });
+      .then((res) => {
+        console.log("data resp @hompage user", res.data);
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   const handlePageChange = (_event: any, newPage: any) => {
@@ -76,56 +79,63 @@ export default function Homepage() {
         </button>
       </div>
       <div className="setcard manage mx-auto my-5 px-[10rem] grid grid-cols-4 gap-4">
-        {paginationData?.map((data, index) => (
-          <Link to={`/read/${data.slug}`}>
-            <Card
-              className="!rounded-xl !shadow-lg hover:!text-[#39947D]"
-              key={index}
-              sx={{ maxWidth: 345 }}
-            >
-              <div className="!overflow-hidden !rounded-t-[1rem] !aspect-w-1 !aspect-h-1">
-                <CardMedia
-                  className="max-w-full max-h-full object-cover cursor-pointer rounded-t-[1rem] transition-transform !duration-500 ease-in-out hover:scale-110 aspect-w-1 aspect-h-1"
-                  component="img"
-                  alt={data.title}
-                  height="140"
-                  image={
-                    data.file && data.file != "noimage.jpg"
-                      ? `${API_IMG}/${data.file}`
-                      : NoimageLogo
-                  }
-                />
-              </div>
-
-              <CardContent>
-                <Typography
-                  className="!font-bold !text-[19.125px] hover:!text-[#39947D] text-ellipsis overflow-hidden whitespace-nowrap"
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                >
-                  {data.title}
-                </Typography>
-                <div className="overflow-hidden">
-                  <Typography variant="body2" color="text.secondary">
-                    <span className="truncate overflow-ellipsis font-bold hover:!text-[#000000]">
-                      {/* {data.summary?data.summary:data.title} */}
-                      {data.slug ? data.slug : "no slugdata"}
-                    </span>
-                    {/* <p className="content" dangerouslySetInnerHTML={{__html:data.content}} /> */}
-                  </Typography>
+        {paginationData && (
+          paginationData?.map((data, index) => (
+            <Link to={`/read/${data.slug}`}>
+              <Card
+                className="!rounded-xl !shadow-lg hover:!text-[#39947D]"
+                key={index}
+                sx={{ maxWidth: 345 }}
+              >
+                <div className="!overflow-hidden !rounded-t-[1rem] !aspect-w-1 !aspect-h-1">
+                  <CardMedia
+                    className="max-w-full h-[180px] object-cover cursor-pointer rounded-t-[1rem] transition-transform !duration-500 ease-in-out hover:scale-110 aspect-w-1 aspect-h-1"
+                    component="img"
+                    alt={data.title}
+                    height="140"
+                    image={
+                      data.file && data.file != "noimage.jpg"
+                        ? `${API_IMG}/${data.file}`
+                        : NoimageLogo
+                    }
+                  />
                 </div>
-              </CardContent>
-              <CardActions className="float-end mr-1 mb-1 rounded-full hover:!bg-[#e4f5ea]">
-                {/* <Button className="hover:!bg-[red] !rounded-full" size="small">
+
+                <CardContent>
+                  <Typography
+                    className="!font-bold !text-[19.125px] hover:!text-[#39947D] text-ellipsis overflow-hidden whitespace-nowrap"
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                  >
+                    {data.title}
+                  </Typography>
+                  <div className="overflow-hidden">
+                    <Typography variant="body2" color="text.secondary">
+                      <span className="truncate overflow-ellipsis font-bold hover:!text-[#000000]">
+                        {/* {data.summary?data.summary:data.title} */}
+                        {data.summary ? data.summary : "no slugdata"}
+                      </span>
+                      {/* <p className="content" dangerouslySetInnerHTML={{__html:data.content}} /> */}
+                    </Typography>
+                  </div>
+                </CardContent>
+                <CardActions className="float-end mr-1 mb-1 rounded-full hover:!bg-[#e4f5ea]">
+                  {/* <Button className="hover:!bg-[red] !rounded-full" size="small">
                 Share
               </Button> */}
-                <Link to={`/user/blog/read/${data.slug}`}>Read more</Link>
-              </CardActions>
-            </Card>
-          </Link>
-        ))}
+                  <Link to={`/user/blog/read/${data.slug}`}>Read more</Link>
+                </CardActions>
+              </Card>
+            </Link>
+          ))
+        )}
       </div>
+      {paginationData.length == 0 && (
+        <div className="flex justify-center items-center h-[60vh]">
+          <SyncLoader color="#36d7b7" />
+        </div>
+      )}
       <div className="justify-center flex">
         {data.length && (
           <Stack className="mx-10 mb-10" spacing={2}>

@@ -19,6 +19,7 @@ import "froala-editor/css/froala_editor.pkgd.min.css";
 import "froala-editor/js/plugins.pkgd.min.js";
 import FroalaEditorComponent from "react-froala-wysiwyg";
 import FroalaEditor from "react-froala-wysiwyg";
+import Swal from "sweetalert2";
 // interface dataType {
 //   name: string;
 //   detail: string;
@@ -48,33 +49,6 @@ const CreateBlog = () => {
     },
   });
 
-  // const handleImageUpload = () => {
-  //   const input = document.createElement("input");
-  //   input.type = "file";
-  //   input.accept = "image/*";
-  //   input.click();
-
-  //   input.addEventListener("change", () => {
-  //     if(input.files){
-  //       const file = input.files[0];
-  //       if (file) {
-  //         const fileReader = new FileReader();
-  //         fileReader.onload = (e) => {
-  //           const base64 = e.target?.result;
-
-  //           // Insert the base64-encoded image into the editor
-  //           (FroalaEditor as any).Methods.insertHTML(
-  //             '<img src="' + base64 + '" class="fr-fic fr-dii">'
-  //           );
-  //         };
-
-  //         fileReader.readAsDataURL(file);
-  //       }
-  //     }
-
-  //   });
-  // };
-
   const sunoption = {
     // [{ header: [1, 2, false] }],
     buttonList: [
@@ -89,53 +63,6 @@ const CreateBlog = () => {
       ["table", "link", "image", "video", "audio"],
     ],
   };
-
-  // const editorConfig = {
-  //   heightMin: 300,
-  //   placeholderText: "Edit Your Content Here!",
-  //   toolbarButtons: {
-  //     moreText: {
-  //       buttons: ["bold", "italic", "underline", "strikeThrough", "subscript", "superscript", "fontSize", "textColor", "backgroundColor", "inlineClass", "inlineStyle", "clearFormatting"]
-  //     },
-  //     moreParagraph: {
-  //       buttons: ["alignLeft", "alignCenter", "alignRight", "alignJustify", "indent", "outdent"]
-  //     },
-  //     moreRich: {
-  //       buttons: ['insertLink', 'insertImage', 'insertVideo', 'insertTable', 'emoticons', 'fontAwesome', 'specialCharacters', 'embedly', 'insertFile', 'insertHR']
-  //     },
-  //   },
-  //   events: {
-  //     "image.beforeUpload": handleImageUpload,
-  //   },
-  // };
-
-  // const FontAttributor = Quill.import("attributors/class/font");
-  // FontAttributor.whitelist = [
-  //   "sofia",
-  //   "slabo",
-  //   "roboto",
-  //   "inconsolata",
-  //   "ubuntu",
-  // ];
-  // Quill.register(FontAttributor, true);
-  // const modules = {
-  //   toolbar: [
-  //     [{ header: [1, 2, false] }],
-
-  //     ["bold", "italic", "underline", "strike", "blockquote"],
-  //     [
-  //       { list: "ordered" },
-  //       { list: "bullet" },
-  //       { indent: "-1" },
-  //       { indent: "+1" },
-  //     ],
-  //     [{ color: [] }, { background: [] }],
-  //     ["link", "image"],
-  //     [{ align: [] }],
-
-  //     ["clean"],
-  //   ],
-  // };
 
   const handlechange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // console.log("handlechange form Createblogspage : ", e.target.value);
@@ -161,17 +88,41 @@ const CreateBlog = () => {
     formimage.append("author", userdata);
     console.log("content createblog", content);
 
-    // if(!user.user.token){
-    //   nevigate('/login');
-    // }
+    let timerInterval: any;
+    Swal.fire({
+      timer: 1200,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+      willClose: () => {
+        clearInterval(timerInterval);
+        // func
 
-    create(formimage)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log("error creating", err);
-      });
+        create(formimage)
+          .then((res) => {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "saved",
+              showConfirmButton: false,
+              timer: 1200,
+            });
+            console.log(res);
+            // setTimeout(()=>{
+            //   window.location.reload();
+            // },3000)
+          })
+          .catch((err) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong!",
+            });
+            console.log("error creating", err);
+          });
+      },
+    });
   };
 
   console.log("user from createblogpage : ", user);

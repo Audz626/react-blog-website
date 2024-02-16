@@ -34,7 +34,7 @@ const pages = [
     to: "/user/index",
   },
   {
-    title: "CareteBlog",
+    title: "CreateBlog",
     icon: "",
     to: "/user/createblog",
   },
@@ -339,7 +339,7 @@ function ResponsiveAppBar() {
           {/* User Menu */}
           {user.user.token && (
             <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
+              <Tooltip title="Open Menu">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 2 }}>
                   <Avatar
                     alt="Remy Sharp"

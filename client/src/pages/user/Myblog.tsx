@@ -91,6 +91,7 @@ const Myblog = () => {
           sx={{ maxWidth: 345 }}
         >
           <CardMedia
+          className="max-w-full h-[180px] object-cover cursor-pointer rounded-t-[1rem] transition-transform !duration-500 ease-in-out hover:scale-110 aspect-w-1 aspect-h-1"
             component="img"
             alt={data.title}
             height="140"
